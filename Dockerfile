@@ -27,11 +27,3 @@ ARG BUILDER_HOME
 RUN useradd -d "$BUILDER_HOME" -m -U builder
 USER builder
 WORKDIR "$BUILDER_HOME"
-
-FROM builder AS builder-with-source
-
-# Prepare src dir
-ARG BUILDER_HOME
-ARG SRC_PATH="$BUILDER_HOME/source"
-RUN mkdir "$SRC_PATH"
-WORKDIR "$SRC_PATH"
